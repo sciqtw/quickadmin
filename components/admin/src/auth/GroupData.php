@@ -64,7 +64,7 @@ class GroupData extends Resource
 
         $app_name = app()->http->getName();
         if($app_name !== 'admin'){
-            $model->where("plugin_name",$app_name);
+            $model->where("plugin",$app_name);
         }
         return $model->order("id desc");
     }
@@ -192,7 +192,7 @@ class GroupData extends Resource
     protected function deleteAction($action, $request)
     {
         return $action->canRun(function ($request, $model) {
-            if( $model['plugin_name'] != app()->http->getName()){
+            if( $model['plugin'] != app()->http->getName()){
                 return false;
             }
             return true;
@@ -207,7 +207,7 @@ class GroupData extends Resource
     protected function editAction(Action $action, $request)
     {
         return $action->canRun(function ($request, $model) {
-            if($model['plugin_name'] != app()->http->getName()){
+            if($model['plugin'] != app()->http->getName()){
                 return false;
             }
             return true;
@@ -223,7 +223,7 @@ class GroupData extends Resource
     protected function addAction(Action $action, $request)
     {
         return $action->beforeSaveUsing(function ($data, $request) {
-            $data['plugin_name'] = app()->http->getName();
+            $data['plugin'] = app()->http->getName();
             return $data;
         })->page();
     }
