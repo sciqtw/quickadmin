@@ -62,7 +62,6 @@ class ModuleService extends Service
             ],
             'plugins'  => [
                 'rules'  => [
-                    'plugins/crud',
                     'plugins/Plugin.php',
                 ],
                 'ignore' => [],
@@ -111,7 +110,7 @@ class ModuleService extends Service
         $this->root = $this->app->getRootPath();
         $this->version = trim(Quick::version(), 'v');
         $maxVersion = strstr($this->version, '.', true);
-        $this->server = "http://quicktest.com/index.php/";
+        $this->server = "https://serve.quickadmin.cn/index.php/";
         return $this;
     }
 
