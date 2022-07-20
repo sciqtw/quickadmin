@@ -125,6 +125,14 @@ class InstallService extends CommonService
                 'status' => 1,
             ];
 
+
+            $user = SystemUser::where(['username' => $data['name']])->find();
+            if($user){
+                SystemUserIdentity::where(['user_id' => $user->id])->delete();
+                SystemAdminInfo::where(['user_id' => $user->id])->delete();
+                $user->delete();
+            }
+
             $data['plugin_name'] = 'admin';
             $user = SystemUser::createAdminUser($data['name'],[
                 'password' => $newPassword
