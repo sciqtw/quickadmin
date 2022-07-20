@@ -167,7 +167,7 @@ class InstallService extends CommonService
             // 检测能否成功写入数据库配置
             $result = @file_put_contents($dbConfigFile, $config);
             if (!$result) {
-                throw new Exception(__('The current permissions are insufficient to write the file %s', 'config/database.php'));
+                throw new Exception('The current permissions are insufficient to write the file config/database.php');
             }
 
 
