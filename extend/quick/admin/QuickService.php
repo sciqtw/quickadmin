@@ -79,7 +79,7 @@ class QuickService extends Service
 
     public function loadPlugin()
     {
-//        PluginService::instance()->bootPlugins();
+        PluginService::instance()->bootPlugins();
     }
 
 
