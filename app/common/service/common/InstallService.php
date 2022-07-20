@@ -176,7 +176,7 @@ class InstallService extends CommonService
         } catch (\PDOException $e) {
             return $this->error( $e->getMessage());
         } catch (\Throwable $e) {
-            return $this->error( $e->getMessage(),['file' => $e->getFile(),'line' => $e->getCode()]);
+            return $this->error( $e->getMessage(),['file' => $e->getFile(),'line' => $e->getCode(),'trace' => $e->getTrace()]);
         }
 
     }
