@@ -10,6 +10,7 @@ use quick\admin\library\tools\HttpTools;
 use quick\admin\Service;
 use Symfony\Component\Finder\Finder;
 use think\Exception;
+use think\facade\Log;
 
 /**
  *
@@ -86,11 +87,14 @@ class CloudService extends Service
     {
         $url = $this->getUrl($url);
         $body = HttpTools::get($url, $params, $this->getHeaders());
+        Log::info($body);
         $res = json_decode($body, true);
         if (!$res) {
+//            Log::error($body);
             throw new \Exception('Cloud response body `' . $body . '` could not be decode.');
         }
-        if ($res['code'] !== 0) {
+        if (!isset($res['code']) || $res['code'] !== 0) {
+            Log::error($url.'---------->'.$body);
             throw new CloudException($res['msg'], $res['code'], null, $res);
         }
         return $res;
