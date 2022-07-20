@@ -228,7 +228,7 @@
           }
         }).catch(error => {
 
-          closeModal('error', error);
+          // closeModal('error', error);
 
           finishLoading();
           // if (error.response.status === 422) {
