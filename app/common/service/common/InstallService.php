@@ -138,6 +138,7 @@ class InstallService extends CommonService
                 'password' => $newPassword
             ],[],1);
             $data['user_id'] = $user->id;
+            $data['auth_set'] = '';
 
             $res = $instance->name('system_admin_info')->save($data);
 
