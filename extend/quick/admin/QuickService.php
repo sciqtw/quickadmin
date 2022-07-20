@@ -79,6 +79,9 @@ class QuickService extends Service
 
     public function loadPlugin()
     {
+        if (!file_exists(app()->getRootPath() . '/install.lock')) {
+            return  false;
+        }
         PluginService::instance()->bootPlugins();
     }
 
