@@ -1,0 +1,67 @@
+<template id="quick-dashboard">
+  <div class="quick-dashboard">
+    <div style="margin-bottom: 10px;" shadow="never">
+
+      <div slot="header" class="card-header">
+        <slot name="header">
+          <slot name="header-left">
+            <i class="el-icon-share"></i>
+            <span>{{title}}</span>
+          </slot>
+          <div class="card-header-tag">
+            <slot name="header-right">
+              <el-tag type="success" size="mini">添加</el-tag>
+            </slot>
+          </div>
+        </slot>
+      </div>
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
+<script>
+  Quick.booting(function (Vue, router, store) {
+    Vue.component('quick-dashboard', {
+      template: '#quick-dashboard',
+      computed: {},
+      props: {
+        title: {
+          type: String,
+          default: '',
+        },
+        header: {
+          type: Object
+        }
+      },
+      data() {
+        return {};
+      },
+      created() {
+
+      },
+      methods: {
+        test() {
+
+          // Quick.request().post("http://taibao.com/addons/pond/api.Award/getUserAwardList?activityid=10000")
+        }
+      }
+    });
+
+  })
+
+</script>
+<style>
+
+  .card-header{
+    padding:0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .quick-dashboard .el-card__header .card-header-tag {
+    float: right;
+    top: 15px;
+    right: 20px;
+  }
+</style>

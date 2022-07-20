@@ -1,0 +1,22 @@
+{
+    "private": true,
+    "scripts": {
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "mix --production"
+    },
+    "devDependencies": {
+        "@vue/compiler-sfc": "^3.2.26",
+        "laravel-mix": "^6.0.39",
+        "sass": "^1.45.2",
+        "sass-loader": "^12.4.0",
+        "vue-loader": "^16.8.3"
+    },
+    "dependencies": {
+        "echarts": "^5.3.1",
+        "vue": "^3.2.29",
+        "vue-echarts": "^6.0.0-rc.3"
+    }
+}

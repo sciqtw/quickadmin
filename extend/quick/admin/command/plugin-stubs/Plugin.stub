@@ -1,0 +1,144 @@
+<?php
+
+namespace plugins\{{ pluginName }};
+
+use quick\admin\library\service\MenuService;
+use quick\admin\Quick;
+
+class Plugin extends \plugins\Plugin
+{
+
+
+    /**
+     * 名称
+     *
+     * @var string
+     */
+    public $name = "{{ pluginName }}";
+
+
+    /**
+     * @var string
+     */
+    public $app_key = "{{ pluginName }}";
+
+
+
+    public function component()
+    {
+
+    }
+
+
+    /**
+     * 第三方工具
+     * @return array
+     */
+    public function tools():array
+    {
+        return [];
+    }
+
+
+
+    /**
+     * @return array
+     */
+    public function script():array
+    {
+
+        return [
+//            'test' => __DIR__.'/tools/dist/js/field.js',
+        ];
+    }
+
+
+    /**
+     * @return array
+     */
+    public function style():array
+    {
+        return [];
+    }
+
+
+    /**
+     * 本地组件路径
+     * @return string
+     */
+    public function viewComponentPath()
+    {
+        return 'components/index';
+    }
+
+
+    /**
+     * 注册资源
+     *
+     * @throws \ReflectionException
+     */
+    public function resources():array
+    {
+        // 注册资源
+        Quick::resourcesIn($this->getAppKey(), __DIR__."/quick");
+        return [];
+    }
+
+   /**
+     * 安装
+     * @return mixed|void
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\DbException
+     * @throws \think\db\exception\ModelNotFoundException
+     */
+    public function install()
+    {
+        $menu = [
+            [
+                'path'    => '{{ pluginName }}',
+                'title'   => '{{ pluginName }}',
+                'icon'    => 'plus-square-fill',
+                'children' => [
+                    [
+                        'path'    => '{{ pluginName }}/resource/index/index',
+                        'title'   => '首页',
+                        'icon'    => 'plus-square-fill',
+                        'sort'   => '22',
+                    ],
+                ]
+            ]
+        ];
+
+        MenuService::instance()->create($menu,[],0);
+    }
+
+
+    /**
+     * @return mixed|void
+     */
+    public function uninstall()
+    {
+        MenuService::instance()->delete($this->name);
+    }
+
+
+    /**
+     * 启用插件
+     * @return bool|void
+     */
+    public function enable()
+    {
+        MenuService::instance()->enable($this->name);
+    }
+
+    /**
+     * 禁用插件
+     * @return bool|void
+     */
+    public function disable()
+    {
+
+        MenuService::instance()->disable($this->name);
+    }
+
+}

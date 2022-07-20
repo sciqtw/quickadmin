@@ -1,0 +1,116 @@
+{extend name='layout/index'}
+{block name='title'}个人中心{/block}
+
+{block name='body'}
+<style>
+
+
+    .form-signin {
+        width: 100%;
+        max-width: 400px;
+        margin: auto;
+        margin-top: 130px;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+    .form-signin .active{
+        background-color: #ffffff;
+    }
+    .form-signin .login-tab{
+        font-size: 23px;
+    }
+</style>
+
+<div id="app" class="container" style="padding-top:30px;">
+
+    <div class="form-signin">
+        <div class="dir-left-nowrap main-between bg-light login-tab">
+            <a href="login.html" class="main-center py-3 cross-center box-grow-1 active ">登录</a>
+            <a href="register.html" class="main-center py-3 cross-center box-grow-1 ">注册</a>
+        </div>
+
+        <form id="signupForm" class="p-4 needs-validation" >
+
+            <div class="mb-3">
+                <label  class="form-label">账户</label>
+                <input type="email" class="form-control " :class="{'is-invalid':hasError('username')}" required >
+                <div class="invalid-feedback">
+                    账户不能为空
+                </div>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">密码</label>
+                <input type="password" :class="{'is-invalid':hasError('password')}"  class="form-control" >
+                <div class="invalid-feedback">
+                    {{hasError('password')}}
+                </div>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> 保存会话
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg qk-btn-primary" type="button" @click="test">登录</button>
+        </form>
+    </div>
+
+</div>
+
+{/block}
+
+{block name='script'}
+
+<script>
+
+    const vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                name:'hello word',
+                model:{
+                    mobile:'',
+                    password:'',
+                    password:'',
+                },
+                errors:{},
+            }
+        },
+        computed:{
+            hasError(){
+                return (name) => {
+                    if(this.errors[name]){
+                        return this.errors[name]
+                    }
+                    return false
+                }
+            }
+        },
+        methods:{
+            test(){
+                // console.log('----',this.validate())
+                // var forms = document.getElementsByClassName('needs-validation');
+                // console.log('------forms',forms.signupForm,forms.signupForm.checkValidity())
+                // forms.signupForm.classList.add('was-validated')
+                // this.errors = {
+                //     username:'账户名称不能为空'
+                // }
+                console.log('dddd')
+                request({
+                    url:'/plugin/api/passport/mobileLogin',
+                    data:{
+                        mobile:13888888888,
+                        password:'123456',
+                        type:'username'
+                    },
+                    method:'POST',
+                }).then(e => {
+
+                }).catch(e => {
+
+                });
+            }
+        },
+    })
+</script>
+{/block}

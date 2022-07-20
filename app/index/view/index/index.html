@@ -1,0 +1,191 @@
+{extend name='layout/index'}
+
+{block name='body'}
+<style>
+
+    .carousel-item{
+        height: 550px;
+    }
+
+    .carousel-item .carousel-op{
+        position: absolute;
+        right: 5%;
+        top: 100px;
+        bottom: 20px;
+        left: 5%;
+        z-index: 10;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: #262626;
+    }
+
+
+    .carousel-item .pro-con {
+        margin-top: 114px;
+    }
+    .carousel-item .pro-con a {
+        width: 190px;
+        height: 50px;
+        line-height: 34px;
+        text-align: center;
+        font-size: 20px;
+        border-radius: 62px;
+        /*background: #59a3fc;*/
+    }
+    .bg-image01{
+        background:  url(/upload/image/b4.jpg) no-repeat top center;
+        background-size: cover;
+    }
+</style>
+<!--    data-bs-ride="carousel"-->
+<div id="myCarousel" class="carousel slide"  >
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active bg-image01">
+
+            <div class="container carousel-op">
+                <div class=" text-end pro-con">
+                    <h1 class="animated bounceInDown">模块化开发</h1>
+                    <p class="animated slideInRight">
+                        一键生成CRUD/一键生成菜单/一键生成API文档 <br>
+                        强大的一键生成功能快速简化你的开发流程,加快你的项目开发
+                    </p>
+                    <p><a class="btn btn-lg btn-primary animated fadeInUp" href="#">了解详情</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item bg-image01">
+
+            <div class="container carousel-op">
+                <div class="pro-con text-end">
+                    <h1 class="animated slideInRight">
+                        完善的权限管理
+                    </h1>
+                    <p class="animated slideInLeft">
+                        基于完善的Auth权限控制管理、无限父子级权限分组、可自由分配子级权限、一个管理员可同时属于多个组别
+                    </p>
+                    <a href="#" class="btn btn-primary animated fadeInUp">
+                        查看演示
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item bg-image01">
+           <div class="container carousel-op">
+                <div class="pro-con text-end">
+                    <h1 class="animated bounceInRight">
+                        响应式布局
+                    </h1>
+                    <p class="animated bounceInUp">
+                        基于ThinkPHP和Bootstrap进行二次开发,手机、平板、PC均自动适配,无需要担心兼容性问题
+                    </p>
+                    <a href="#" class="btn btn-primary animated bounceInUp">
+                        免费使用
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+
+<!--<section>-->
+<!--    <div style="width:100%;">-->
+
+<!--        <div class="bg-image01" style="height: 500px;"></div>-->
+<!--    </div>-->
+
+<!--</section>-->
+
+
+<!--<section class="album py-5 bg-light">-->
+<!--    <div class="container">-->
+
+<!--        <div class="row">-->
+<!--            <div class="col-md-4">-->
+<!--                <div class="card mb-4 border-light">-->
+<!--                    <div class="card-body">-->
+<!--                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4">-->
+<!--                <div class="card mb-4 border-light">-->
+<!--                  <div class="card-body ">-->
+<!--                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-4">-->
+<!--                <div class="card mb-4 ">-->
+<!--                  <div class="card-body border-light">-->
+<!--                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<section class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{/block}

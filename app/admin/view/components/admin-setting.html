@@ -1,0 +1,80 @@
+<template id="admin-setting">
+    <div class="admin-setting">
+        <h2>{{title}}</h2>
+        <div class="setting-list">
+            <div class="item" v-for="(action,index) in actions">
+                <div class="content">
+                    <div class="title">{{action.title}}</div>
+                    <div class="desc">{{action.desc}}</div>
+                </div>
+                <div class="action">
+                    <json-render :render-data="action"></json-render>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    Quick.booting(function (Vue, router, store) {
+        Vue.component('admin-setting', {
+            template: '#admin-setting',
+            computed: {},
+            props: {
+                actions: {
+                    type: Array,
+                    default: () => []
+                },
+                title:{
+                    type:String,
+                    default:''
+                }
+            },
+            data() {
+                return {
+                    list: [],
+                    progress: 0,
+                    timeId: null,
+                    loading: false,
+                };
+            },
+            created() {
+                // this.getLog()
+                let self = this
+
+
+            },
+            destroyed:function() {
+
+            },
+            methods: {
+
+            }
+        });
+
+    })
+
+</script>
+<style>
+
+    .admin-setting  h2 {
+        margin: 0;
+        margin-bottom: 30px;
+        font-weight: normal;
+    }
+    .admin-setting .setting-list .item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #e8e8e8;
+    }
+    .setting-list .item .content .title{
+        margin-bottom: 5px;
+        color: #666;
+    }
+    .setting-list .item .content .desc{
+        font-size: 14px;
+        color: #999;
+    }
+</style>

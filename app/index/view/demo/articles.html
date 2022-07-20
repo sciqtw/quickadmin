@@ -1,0 +1,136 @@
+{extend name='layout/index'}
+{block name='title'}个人中心{/block}
+
+{block name='body'}
+<style>
+
+    .card-title-border{
+        border-bottom: 1px solid red;
+        margin-bottom: 10px;
+        padding-bottom: 15px;
+        background: #fff;
+        border-bottom: 1px solid #f5f5f5;
+        font-size: 16px;
+    }
+    .tab-content{
+        background-color: #FFFFFF;
+        padding:15px;
+    }
+    .articles-list-item{
+        margin: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .articles-list-item .title {
+        display: inline;
+        margin: 0 5px 0 0;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .articles-list-item .content-bottom{
+        color: #999;
+        font-size: 14px;
+    }
+
+</style>
+
+<div class="container" style="padding-top:30px;">
+
+    <div class="row">
+        <div class="col-md-8 col-sm-12 pull-left">
+            <div class="bg-light">
+                <ul class="nav nav-tabs " id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">默认</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">最新</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">热门</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="articles-list-item dir-top-nowrap main-between">
+                            <div class="item-content">
+                                <h2 class="title">
+                                    <a href="detail.html">一键增删改查</a>
+                                </h2>
+                                <div>Redis 为什么那么快？ 除了它是内存数据库，使得所有的操作都在内存上进行之外，还</div>
+                            </div>
+                            <div class="dir-left-nowrap main-between content-bottom pt-2">
+                                <div class="dir-left-nowrap">
+                                    <div class="pe-3"><i class="bi bi-eye pe-1"></i>22</div>
+                                    <div class="pe-3"><i class="bi bi-hand-thumbs-up pe-1"></i>44</div>
+                                    <div class="pe-3"><i class="bi bi-chat-left-dots pe-1"></i>23</div>
+                                </div>
+                                <div>  Qin  2018-06-30 </div>
+                            </div>
+                        </div>
+                        <div class="articles-list-item dir-top-nowrap main-between">
+                            <div class="item-content">
+                                <h2 class="title">
+                                    <a href="detail.html">一键增删改查</a>
+                                </h2>
+                                <div>Redis 为什么那么快？ 除了它是内存数据库，使得所有的操作都在内存上进行之外，还</div>
+                            </div>
+                            <div class="dir-left-nowrap main-between content-bottom pt-2">
+                                <div class="dir-left-nowrap">
+                                    <div class="pe-3"><i class="bi bi-eye pe-1"></i>22</div>
+                                    <div class="pe-3"><i class="bi bi-hand-thumbs-up pe-1"></i>44</div>
+                                    <div class="pe-3"><i class="bi bi-chat-left-dots pe-1"></i>23</div>
+                                </div>
+                                <div>  Qin  2018-06-30 </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="card border-light" >
+                <!--                    <div class="card-header">Header</div>-->
+                <div class="card-body">
+                    <div class="card-title-border">热门文章</div>
+                    <div class="dir-left-nowrap mt-2">
+                        <div class="box-grow-0 pe-3">
+                            <span class="num">1</span>
+                        </div>
+                        <div class="box-grow-1">
+                            <a class="" href="/index/demo/detail" title="一张图解析FastAdmin中的表格列表的功能">一张图解析FastAdmin中的表格列表的功能</a>
+                        </div>
+                    </div>
+                    <div class="dir-left-nowrap mt-2">
+                        <div class="box-grow-0 pe-3">
+                            <span class="num">1</span>
+                        </div>
+                        <div class="box-grow-1">
+                            <a class="" href="/index/demo/detail" title="一张图解析FastAdmin中的表格列表的功能">一张图解析FastAdmin中的表格列表的功能</a>
+                        </div>
+                    </div>
+                    <div class="dir-left-nowrap mt-2">
+                        <div class="box-grow-0 pe-3">
+                            <span class="num">1</span>
+                        </div>
+                        <div class="box-grow-1">
+                            <a class="" href="/index/demo/detail" title="一张图解析FastAdmin中的表格列表的功能">一张图解析FastAdmin中的表格列表的功能</a>
+                        </div>
+                    </div>
+                    <div class="dir-left-nowrap mt-2">
+                        <div class="box-grow-0 pe-3">
+                            <span class="num">1</span>
+                        </div>
+                        <div class="box-grow-1">
+                            <a class="" href="/index/demo/detail" title="一张图解析FastAdmin中的表格列表的功能">一张图解析FastAdmin中的表格列表的功能</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

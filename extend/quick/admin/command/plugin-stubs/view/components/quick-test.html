@@ -1,0 +1,35 @@
+<template id="quick-demo">
+  <div>
+    插件组件 {{name}}
+  </div>
+</template>
+
+<script>
+  Quick.booting(function (app, router, store) {
+    // router.addRoute({
+    //     path: '/quick-demo', component: {
+    //     template: '#quick-demo',
+    //     data() {
+    //       return {
+    //         name:'hello'
+    //       }
+    //     },
+    //   }
+    // })
+    app.component('quick-demo', {
+      template: '#quick-demo',
+      data() {
+        return {
+          name:'hello'
+        }
+      },
+      methods: {
+
+      }
+    });
+  })
+
+</script>
+<style>
+
+</style>

@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="{$favicon}"><title>quick-admin</title><script>window.config = JSON.parse('{:jsonVariables()}');</script><script src="/assets/unpkg/vue/dist/vue.global.prod.js"></script>{foreach :availableStyles() as $name=>$path }<link rel="stylesheet" href="{$assetsUrl}/quick/style/{$name}">{/foreach}<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=OV7BZ-ZT3HP-6W3DE-LKHM3-RSYRV-ULFZV"></script><link href="/vue3/css/chunk-1a06b3ab.073c3c83.css" rel="prefetch"><link href="/vue3/css/chunk-59e6e6b6.477b1608.css" rel="prefetch"><link href="/vue3/css/chunk-712824d7.4e28584d.css" rel="prefetch"><link href="/vue3/js/chunk-1a06b3ab.64e35d44.js" rel="prefetch"><link href="/vue3/js/chunk-21a53e9d.7380fbc7.js" rel="prefetch"><link href="/vue3/js/chunk-2d0a3738.118ed12e.js" rel="prefetch"><link href="/vue3/js/chunk-2d0b59f4.d05d8394.js" rel="prefetch"><link href="/vue3/js/chunk-2d0ce81f.c49147dd.js" rel="prefetch"><link href="/vue3/js/chunk-2d224531.2f290458.js" rel="prefetch"><link href="/vue3/js/chunk-583252b8.8cc852eb.js" rel="prefetch"><link href="/vue3/js/chunk-59e6e6b6.1c322280.js" rel="prefetch"><link href="/vue3/js/chunk-680bb220.c1fcfc77.js" rel="prefetch"><link href="/vue3/js/chunk-712824d7.4994613c.js" rel="prefetch"><link href="/vue3/css/chunk-vendors.775421af.css" rel="preload" as="style"><link href="/vue3/css/index.cf6d11f3.css" rel="preload" as="style"><link href="/vue3/js/chunk-vendors.0f5cc0e3.js" rel="preload" as="script"><link href="/vue3/js/index.8771adb8.js" rel="preload" as="script"><link href="/vue3/css/chunk-vendors.775421af.css" rel="stylesheet"><link href="/vue3/css/index.cf6d11f3.css" rel="stylesheet"></head><style>#app {
+        height: 100%;
+    }
+    .first-loading-wrp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 420px;
+        height: 100%
+    }
+
+    .first-loading-wrp > h1 {
+        font-size: 128px
+    }
+
+    .first-loading-wrp .loading-wrp {
+        padding: 98px;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .dot {
+        animation: antRotate 1.2s infinite linear;
+        transform: rotate(45deg);
+        position: relative;
+        display: inline-block;
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+        box-sizing: border-box
+    }
+
+    .dot i {
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        display: block;
+        background-color: #1890ff;
+        border-radius: 100%;
+        transform: scale(.75);
+        transform-origin: 50% 50%;
+        opacity: .3;
+        animation: antSpinMove 1s infinite linear alternate
+    }
+
+    .dot i:nth-child(1) {
+        top: 0;
+        left: 0
+    }
+
+    .dot i:nth-child(2) {
+        top: 0;
+        right: 0;
+        -webkit-animation-delay: .4s;
+        animation-delay: .4s
+    }
+
+    .dot i:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        -webkit-animation-delay: .8s;
+        animation-delay: .8s
+    }
+
+    .dot i:nth-child(4) {
+        bottom: 0;
+        left: 0;
+        -webkit-animation-delay: 1.2s;
+        animation-delay: 1.2s
+    }
+
+    @keyframes antRotate {
+        to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg)
+        }
+    }
+
+    @-webkit-keyframes antRotate {
+        to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg)
+        }
+    }
+
+    @keyframes antSpinMove {
+        to {
+            opacity: 1
+        }
+    }
+
+    @-webkit-keyframes antSpinMove {
+        to {
+            opacity: 1
+        }
+    }</style><body><div id="app" v-cloak><div class="first-loading-wrp"><div class="loading-wrp"><span class="dot dot-spin"><i></i><i></i><i></i><i></i></span></div><div style="display: flex; justify-content: center; align-items: center;">{$app_name}</div></div></div><script src="/vue3/js/chunk-vendors.0f5cc0e3.js"></script><script src="/vue3/js/index.8771adb8.js"></script></body><script>window.Quick = new CreateQuick(config);</script>[__REPLACE__] <?php readerPluginComponentByName('admin'); ?> <?php  renderPluginsComponents(); ?> {foreach :availableScripts() as $name=>$path }<script src="{$base_url}/quick/script/{$name}"></script>{/foreach}<script>Quick.inits();</script></html>

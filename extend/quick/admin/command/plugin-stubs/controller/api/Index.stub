@@ -1,0 +1,27 @@
+<?php
+declare(strict_types=1);
+
+namespace plugins\{{ pluginName }}\controller\api;
+
+
+use plugins\{{ pluginName }}\controller\ApiController;
+
+/**
+ * Class Index
+ * @package plugins\{{ pluginName }}\controller\api
+ */
+class Index extends ApiController
+{
+
+    /**
+     * @var array
+     */
+    protected $noNeedLogin = ["*"];
+
+    public function test()
+    {
+
+         echo "controller\api {{ pluginName }}";
+    }
+
+}

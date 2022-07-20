@@ -1,0 +1,64 @@
+{extend name='layout/index'}
+{block name='title'}个人中心{/block}
+
+{block name='body'}
+<style>
+
+    .sidenav{
+        border-radius: 10px;
+        padding:10px 0;
+        background-color: #FFFFFF;
+    }
+    .sidenav .list-group .list-group-item{
+        border-width: 0;
+    }
+    .sidenav .list-group .list-group-item.active {
+        border-left: 2px solid #007bff;
+        background: #FFFFFF;
+    }
+    .sidenav .list-group .list-group-item.active {
+        color: #007bff;
+        font-weight: 400;
+
+    }
+    .panel{
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        padding:20px;
+    }
+    .panel-page{
+        padding: 35px 40px 40px;
+        min-height: 500px;
+    }
+</style>
+
+<div class="container" style="padding-top:30px;">
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidenav">
+
+                <ul class="list-group list-group-flush">
+                    <!--                        <li class="list-group-heading ">An item</li>-->
+                    <li class="list-group-item active">个人中心</li>
+                    <li class="list-group-item">我的插件</li>
+                    <li class="list-group-item">账户设置</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-default panel-page">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        个人中心
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    面板内容
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{/block}

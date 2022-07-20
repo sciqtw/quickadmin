@@ -1,0 +1,22 @@
+<?php
+declare(strict_types=1);
+
+namespace plugins\{{ pluginName }}\controller;
+
+
+/**
+ * 插件前端控制器
+ * Class Index
+ * @package plugins\{{ pluginName }}\controller
+ */
+class Index
+{
+
+
+    public function test()
+    {
+
+        echo " controller {{ pluginName }}";
+    }
+
+}

@@ -1,0 +1,50 @@
+<template id="qk-timeline">
+    <el-timeline>
+        <el-timeline-item
+          v-for="(activity, index) in list"
+          :key="index"
+          v-bind="activity.props"
+        >
+
+            <json-render v-if="activity.props?.content?.component" :render-data="activity.props?.content"></json-render>
+            <div v-else> {{ activity.props?.content }}</div>
+        </el-timeline-item>
+    </el-timeline>
+</template>
+
+<script>
+    Quick.booting(function (Vue, router, store) {
+        Vue.component('qk-timeline', {
+            template: '#qk-timeline',
+            computed: {},
+            props: {
+                list:{
+                    type:Array,
+                    default:() => []
+                }
+            },
+            data() {
+                return {
+
+                };
+            },
+            created() {
+
+
+            },
+            destroyed:function() {
+
+
+            },
+            methods: {
+
+            }
+        });
+
+    })
+
+</script>
+<style lang="sass">
+
+
+</style>

@@ -1,0 +1,28 @@
+<?php
+declare(strict_types=1);
+
+namespace plugins\{{ pluginName }}\controller\admin;
+
+
+use plugins\{{ pluginName }}\controller\BackendController;
+use quick\admin\annotation\AdminAuth;
+
+
+/**
+ * Class Index
+ * @AdminAuth(title="Index",auth=true,menu=true,login=true)
+ * @package app\admin\controller
+ */
+class Index extends BackendController
+{
+
+    /**
+     * @AdminAuth(title="Index",auth=true,menu=true,login=true)
+     */
+    public function test()
+    {
+
+         echo "controller\admin {{ pluginName }}";
+    }
+
+}

@@ -1,0 +1,59 @@
+<?php
+declare (strict_types = 1);
+namespace app\admin\quick\actions\example;
+
+
+use quick\admin\actions\Action;
+
+/**
+ *
+ * Class {%className%}
+ * @package {%namespace%}
+ */
+class {%className%} extends Action
+{
+
+    /**
+     * 关联模型
+     *
+     * @var string
+     */
+    protected static $model = '{%modelClass%}';
+
+    /**
+     *  按钮名称
+     * @var string
+     */
+    protected $name = "action";
+
+
+    public function init()
+    {
+        // 定义动作按钮被点击时弹出一个dialog模态框
+        $this->dialog();
+    }
+
+
+    /**
+    * 按钮被点击时前端异步加载的显示内容
+    *
+    * @return mixed|\quick\admin\http\response\JsonResponse
+    * @throws \think\Exception
+    */
+    public function load()
+    {
+        return $this->response()->message('succcess');
+    }
+
+
+    /**
+     * 前端数据弹出框提交数据的处理方法
+     * @return mixed|\quick\admin\http\response\JsonResponse
+     */
+    public function store()
+    {
+        return $this->response()->message("动作成功");
+    }
+
+
+}

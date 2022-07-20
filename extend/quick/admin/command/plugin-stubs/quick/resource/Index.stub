@@ -1,0 +1,71 @@
+<?php
+declare (strict_types = 1);
+namespace plugins\{{ pluginName }}\quick\resource;
+
+
+use quick\admin\annotation\AdminAuth;
+use quick\admin\form\Form;
+use quick\admin\Resource;
+use quick\admin\table\Table;
+use think\Request;
+
+/**
+ * Class Index
+ * @AdminAuth(title="首页",auth=true,login=true,menu=true)
+ * @package plugins\{{ pluginName }}\quick\resource
+ */
+class Index extends Resource
+{
+    /**
+     * 标题
+     *
+     * @var string
+     */
+    protected $title = '{{ pluginNameStudly }}';
+
+    /**
+     * @var string
+     */
+    protected $description = "";
+
+
+    /**
+     * @param Table $table
+     * @return Table
+     */
+    protected function table(Table $table)
+    {
+        return $table;
+    }
+
+
+    /**
+     * @param Form $form
+     * @param Request $request
+     * @return bool|Form
+     */
+    protected function form(Form $form, Request $request)
+    {
+        return $form;
+    }
+
+    /**
+     * @return array|mixed
+     */
+    protected function actions()
+    {
+        return [];
+    }
+
+
+    /**
+     * 注册批量操作
+     * @return array
+     */
+    protected function batchActions()
+    {
+        return [];
+    }
+
+
+}

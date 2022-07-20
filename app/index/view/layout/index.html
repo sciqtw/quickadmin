@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="QuickAdmin">
+    <meta name="generator" content="Hugo 0.91.2">
+    <title>{block name="title"}QuickAdmin{/block}</title>
+
+    <script>
+        const _scriptUrl = '';
+    </script>
+    <script src="/assets/plugins/plugin/js/qs@6.5.2/dist/qs.js"></script>
+    <script src="/assets/plugins/plugin/js/axios@0.18.0/dist/axios.min.js"></script>
+    <script src="/assets/plugins/plugin/js/vue@2.6.10/dist/vue.js"></script>
+    <script src="/assets/plugins/plugin/js/common.js"></script>
+    <script src="/assets/plugins/plugin/js/dayjs.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"-->
+<!--            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>-->
+
+    <!--    引入动画-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css" rel="stylesheet">
+    <link rel="stylesheet" href="/quick/css/flex.css">
+
+    <!-- Favicons -->
+    {block name="style"}{/block}
+    <meta name="theme-color" content="#563d7c">
+<!--    public style-->
+    <style>
+
+        main.content{
+            width: 100%;
+            overflow: auto;
+            min-height: calc(100vh - 140px);
+        }
+        .qk-bg-primary{
+            background-color:  #409EFF;
+        }
+        .qk-btn-primary{
+            background-color:  #409EFF;
+            color:#FFFFFF;
+        }
+    </style>
+
+
+    <style>
+        a{
+            color: #444c69;
+            text-decoration: none;
+        }
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .text-left{
+            text-align: left;
+        }
+        .qk-float-left{
+            float: left !important;
+        }
+        body{
+            /*padding-top: 60px;*/
+            font-size: 14px;
+            background: #f4f6f8;
+            line-height: 1.5715;
+        }
+
+        .footer{
+            margin-top: 30px;
+            width: 100%;
+            color: #aaa;
+            background: #f0f0f0;
+            /*position: fixed;*/
+            /*bottom: 0;*/
+        }
+        .footer .address{
+            line-height: 50px;
+            text-align: center;
+            background: #f0f0f0;
+            margin: 0;
+        }
+    </style>
+
+
+</head>
+<body>
+{block name='nav'}
+<nav class="navbar navbar-expand-lg navbar-dark  " style="background-color: #409EFF;" >
+    <div class="container-xl">
+        <a class="navbar-brand" href="#">
+            QuickAdmin
+        </a>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" style="justify-content: flex-end;" id="navbarsExample07XL">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="/index/index/index">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/index/index/album">插件市场</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/index/user/index">文档</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/index/demo/articles">文章</a>
+                </li>
+
+                <!--                <li class="nav-item dropdown">-->
+                <!--                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown" aria-expanded="false">Dropdown</a>-->
+                <!--                    <div class="dropdown-menu" aria-labelledby="dropdown07XL">-->
+                <!--                        <a class="dropdown-item" href="#">Action</a>-->
+                <!--                        <a class="dropdown-item" href="#">Another action</a>-->
+                <!--                        <a class="dropdown-item" href="#">Something else here</a>-->
+                <!--                    </div>-->
+                <!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link " href="/index/demo/login">登录</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+{/block}
+
+<main role="main" class="content">
+    {block name='body'} {/block}
+
+</main>
+
+
+{block name='footer' }
+
+<footer class="footer">
+    <div class="container">
+        <p class="address">Company 2017-2022</p>
+    </div>
+
+</footer>
+{/block}
+<script src="/assets/require/require.js" ></script>
+<!--<script src="https://unpkg.com/vue-validator@2.1.7/dist/vue-validator.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>-->
+<script>
+    // require.config({
+    //     paths : {
+    //         "jquery" : [
+    //             "https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min",
+    //
+    //         ],
+    //         // "validate" :[
+    //         //     "https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min",
+    //         // ],
+    //         // "vue-validator" :[
+    //         //     "https://unpkg.com/vue-validator@2.1.7/dist/vue-validator.min"
+    //         // ],
+    //         "bootstrap" : [
+    //             "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min",
+    //         ],
+    //     }
+    // })
+    // require(['jquery'],function($){
+    //     // Vue.use(Validate)
+    //     console.log('dfd',$)
+    //     // alert("load finished");
+    //     // $('.carousel').carousel('pause')
+    //     // $("#myCarousel").carousel('pause');
+    // })
+</script>
+{block name='script'}{/block}
+</body>
+</html>

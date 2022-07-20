@@ -1,0 +1,12 @@
+<?php
+declare (strict_types = 1);
+
+namespace plugins\{{ pluginName }}\service;
+
+
+use app\common\service\CommonService;
+
+class BaseService extends CommonService
+{
+
+}

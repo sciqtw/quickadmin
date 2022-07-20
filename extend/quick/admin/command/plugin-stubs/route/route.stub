@@ -1,0 +1,15 @@
+<?php
+declare (strict_types = 1);
+use think\facade\Route;
+
+
+
+Route::group("api",function (){
+    Route::any(":controller/:action","api.:controller/:action");
+})->middleware([
+    \app\common\middleware\ApiAuth::class
+]);
+
+Route::group("admin",function (){
+    Route::any(":controller/:action","admin.:controller/:action");
+})->middleware([]);

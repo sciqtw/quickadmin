@@ -1,0 +1,23 @@
+{
+  "route": {
+    "dashboard": "首页"
+  },
+  "Add": "添加",
+  "Delete": "删除",
+  "Home": "个人中心",
+  "Github": "Github",
+  "Docs": "文档",
+  "Log Out": "退出",
+  "Dashboard": "控制台",
+  "Reset": "重置",
+  "Submit": "提交",
+  "Unfold": "展开",
+  "Cancel": "取消",
+  "Confirm": "确定",
+  "Logout": "退出登录",
+  "More": "更多",
+  "Large": "大",
+  "Default": "中",
+  "Small": "小",
+  "There was a problem submitting the form.": "表单提交验证有误！"
+}

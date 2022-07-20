@@ -1,0 +1,105 @@
+<template id="queue-log">
+    <div class="queue-log">
+        <el-card>
+            <div class="title success">{{title}}</div>
+            <el-progress :text-inside="true" :stroke-width="17" :percentage="progress"></el-progress>
+            <div class="log-box">
+                <div class="content-list">
+                    <div class="list-item" v-for="(log,index) in list" :key="index">
+                        {{log.message}}
+                    </div>
+                </div>
+            </div>
+        </el-card>
+    </div>
+</template>
+
+<script>
+    Quick.booting(function (Vue, router, store) {
+        Vue.component('queue-log', {
+            template: '#queue-log',
+            computed: {},
+            props: {
+                url: {
+                    type: String
+                }
+            },
+            data() {
+                return {
+                    list: [],
+                    title: '',
+                    progress: 0,
+                    timeId: null,
+                    loading: false,
+                };
+            },
+            created() {
+                this.getLog()
+                let self = this
+                this.timeId = setInterval(() => {
+                    if (!self.loading) {
+                        self.loading = true;
+                        self.getLog()
+                    }
+                }, 1000)
+
+            },
+            unmounted: function () {
+
+                clearInterval(this.timeId);
+            },
+            methods: {
+                getLog() {
+                    Quick.request().post(this.url).then((res) => {
+                        if (!res.code) {
+                            this.list = res.data.history
+                            this.title = res.data.message
+                            this.progress = parseInt(res.data.progress || '0.00')
+
+                        }
+                        this.loading = false;
+                    })
+                }
+            }
+        });
+
+    })
+
+</script>
+<style lang="sass">
+
+    .queue-log .success {
+        color: #67C23A;
+    }
+
+    .queue-log .danger {
+        color: #F56C6C;
+    }
+
+    .queue-log .runing {
+        color: #409EFF;
+    }
+
+    .queue-log .title {
+        text-align: center;
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .queue-log .log-box {
+        height: 300px;
+        margin-top: 30px;
+    }
+
+    .queue-log .content-list {
+        height: 100%;
+        color: #FFFFFF;
+        padding: 10px;
+        background-color: #393D49 !important;
+    }
+
+    .queue-log .content-list .list-item {
+        padding: 3px;
+    }
+</style>
