@@ -20,7 +20,7 @@ class CloudService extends Service
     public $classVersion = '4.2.10';
     public $urlEncodeQueryString = true;
 
-    private $baseUrl = 'https://serve.quickadmin.cn'; // 开发
+    private $baseUrl = 'https://www.quickadmin.cn'; // 开发
 
     private $token_cache_key = 'quick_admin_user_token';
 
@@ -173,11 +173,19 @@ class CloudService extends Service
      */
     public function pluginList($page, $perPage)
     {
+        try {
+            $res = $this->httpGet('plugin/api/index/list', [
+                'page' => $page,
+                'per_page' => $perPage,
+            ]);
+            return $res;
+        }catch (\Exception $e){
+            return [
+                'code' => 1,
+                'msg' => '请求失败',
+            ];
+        }
 
-        return $this->httpGet('plugin/api/index/list', [
-            'page' => $page,
-            'per_page' => $perPage,
-        ]);
     }
 
 
