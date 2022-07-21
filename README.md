@@ -19,7 +19,7 @@
 ```
 
 
-[使用文档https://doc.quicdkadmin.cn](https://doc.quicdkadmin.cn)
+[使用文档https://doc.quickadmin.cn](https://doc.quickadmin.cn)
 
 #### 在线演示
 
