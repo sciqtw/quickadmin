@@ -14,7 +14,7 @@
     <script src="/assets/unpkg/vue/dist/vue.global.prod.js"></script>
     <!--引入Tool Stleys-->
     {foreach :availableStyles() as $name=>$path }
-    <link rel="stylesheet" href="{$assetsUrl}/quick/style/{$name}">
+    <link rel="stylesheet" href="{$path}">
     {/foreach}
 
     <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=OV7BZ-ZT3HP-6W3DE-LKHM3-RSYRV-ULFZV"></script>
@@ -147,7 +147,7 @@
 
 <!--引入依赖js-->
 {foreach :availableScripts() as $name=>$path }
-<script src="{$base_url}/quick/script/{$name}"></script>
+<script src="{$path}"></script>
 {/foreach}
 
 <script>
