@@ -90,7 +90,7 @@ class AuthService extends Service implements AuthInterface
 //        }
         $this->user = $userModel;
 
-        if (app()->isDebug() || true) {
+        if (app()->isDebug()) {
             $nodes = $this->_getAdminNodes($userModel);
         } else {
             $nodes = $this->_adminInfo("nodes", []);
