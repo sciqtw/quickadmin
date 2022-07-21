@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '87843b16d4a34d3eecd790732ebe710e71401fd2',
+    'reference' => 'c2660169f04d7333d5795639417f1d642ed196c2',
     'name' => 'sciqtw/quickadmin',
   ),
   'versions' => 
@@ -219,7 +219,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '87843b16d4a34d3eecd790732ebe710e71401fd2',
+      'reference' => 'c2660169f04d7333d5795639417f1d642ed196c2',
     ),
     'symfony/deprecation-contracts' => 
     array (

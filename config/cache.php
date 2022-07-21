@@ -4,7 +4,6 @@
 // | 缓存设置
 // +----------------------------------------------------------------------
 
-use think\facade\Env;
 
 return [
     // 默认缓存驱动
@@ -18,7 +17,7 @@ return [
             // 缓存保存目录
             'path'       => '',
             // 缓存前缀
-            'prefix'     =>  'cache_dnt_3',
+            'prefix'     =>  env('cache.prefix', 'cache_dnt_31'),
             // 缓存有效期 0表示永久缓存
             'expire'     => 0,
             // 缓存标签前缀
@@ -30,19 +29,19 @@ return [
             // 驱动方式
             'type'          => 'redis',
             // 服务器地址
-            'host'          => Env::get('redis.redis_hostname', '127.0.0.1'),
+            'host'          => env('redis.redis_hostname', '127.0.0.1'),
             // 端口
-            'port'          => Env::get('redis.port', '6379'),
+            'port'          => env('redis.port', '6379'),
             // 密码
-            'password'      => Env::get('redis.redis_password', ''),
+            'password'      => env('redis.redis_password', ''),
             // 缓存有效期 0表示永久缓存
             'expire'        => 0 ,
             // 缓存前缀
-            'prefix'     => 'cache_dnt_3',
+            'prefix'     =>  env('cache.prefix', 'cache_dnt_31'),
             // 缓存标签前缀
-            'tag_prefix'    => '',
+            'tag_prefix'    =>  env('cache.tag_prefix', ''),
             // 数据库 0号数据库
-            'select'        => intval(Env::get('redis.select', 0)),
+            'select'        => intval(env('redis.select', 0)),
             // 序列化机制 例如 ['serialize', 'unserialize']
             'serialize'     => [],
             // 服务端主动关闭
