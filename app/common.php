@@ -46,22 +46,6 @@ if (!function_exists('base64UrlDecode')) {
 }
 
 
-if (!function_exists('availableStyles')) {
-
-    function availableStyles()
-    {
-        return \quick\admin\quick::availableStyles(app("request"));
-    }
-}
-
-if (!function_exists('availableScripts')) {
-
-    function availableScripts()
-    {
-        return \quick\admin\quick::availableScripts(app("request"));
-    }
-}
-
 
 if (!function_exists('jsonVariables')) {
 

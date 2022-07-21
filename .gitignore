@@ -4,3 +4,4 @@
 .env
 /runtime
 /install.lock
+/public/quick-temp

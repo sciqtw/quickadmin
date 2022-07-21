@@ -10,6 +10,7 @@ use ReflectionClass;
 use Symfony\Component\Finder\Finder;
 use think\facade\Config;
 use think\facade\Event;
+use think\facade\Log;
 use think\helper\Arr;
 use think\helper\Str;
 use think\Request;
@@ -56,7 +57,6 @@ class Quick
      * @var array
      */
     public static $tools = [];
-
 
 
     /**
@@ -170,7 +170,7 @@ class Quick
      */
     public static function registerResource(\Closure $callback)
     {
-        return self::listen(self::EVENT_RESOURCE,$callback);
+        return self::listen(self::EVENT_RESOURCE, $callback);
     }
 
 
@@ -191,7 +191,7 @@ class Quick
      */
     public static function registerAssets(\Closure $callback)
     {
-        return self::listen(self::EVENT_ASSETS,$callback);
+        return self::listen(self::EVENT_ASSETS, $callback);
     }
 
 
@@ -202,7 +202,6 @@ class Quick
     {
         return event(self::EVENT_ASSETS);
     }
-
 
 
     /**
@@ -308,9 +307,45 @@ class Quick
      */
     public static function availableScripts(Request $request)
     {
-        return self::getScriptsByKeys(self::$loadResource);
+        $jsArr = self::getScriptsByKeys(self::$loadResource);
+
+        $saveDir = static::getPublicTempDir('js');
+        foreach ($jsArr as $name => $filePath) {
+            if (file_exists($filePath)) {
+
+                $savePath = $saveDir . $name . '.js';
+                $publicPath = str_replace(app()->getRootPath() . 'public', '', $savePath);
+                $jsArr[$name] = $publicPath;
+
+                $curMd5 = md5_file($filePath);
+                if(cache($name . '.js') !== $curMd5 || !file_exists($savePath) ){
+                    copy($filePath, $savePath);
+                    cache($name . '.js',$curMd5);
+                }
+
+
+            } else {
+                Log::error('资源文件不存在：' . $filePath);
+            }
+
+        }
+        return $jsArr;
     }
 
+
+    /**
+     * @param string $dir
+     * @return string
+     */
+    private static function getPublicTempDir(string $dir): string
+    {
+        $ds = DIRECTORY_SEPARATOR;
+        $saveDir = app()->getRootPath() . 'public' . $ds . 'quick-temp' . $ds . $dir . $ds;
+        if (!is_dir($saveDir)) {
+            @mkdir($saveDir, 0755, true);
+        }
+        return $saveDir;
+    }
 
     /**
      * 获取所有应该注册的可用style
@@ -320,8 +355,27 @@ class Quick
      */
     public static function availableStyles(Request $request)
     {
+        $cssArr = self::getStylesByKeys(self::$loadResource);
+        $saveDir = static::getPublicTempDir('css');
+        foreach ($cssArr as $name => $filePath) {
 
-        return self::getStylesByKeys(self::$loadResource);
+            if (file_exists($filePath)) {
+
+                $savePath = $saveDir . $name . '.css';
+                $publicPath = str_replace(app()->getRootPath() . 'public', '', $savePath);
+                $cssArr[$name] = $publicPath;
+
+                $curMd5 = md5_file($filePath);
+                if(cache($name . '.css') !== $curMd5 || !file_exists($savePath) ){
+                    copy($filePath, $savePath);
+                    cache($name . '.css',$curMd5);
+                }
+            } else {
+                Log::error('资源文件不存在：' . $filePath);
+            }
+
+        }
+        return $cssArr;
     }
 
 
@@ -612,7 +666,7 @@ class Quick
         if (is_null($path)) {
             quick_abort(404, '找不到资源');
         }
-
+        
         return response(
             file_get_contents($path),
             200,
@@ -630,12 +684,12 @@ class Quick
     public static function getAuthService()
     {
         $authConfig = Config::get('quick.auth');
-        if(!empty($authConfig['service'])){
+        if (!empty($authConfig['service'])) {
             /** @var AuthService $service */
             $service = invoke($authConfig['service']);
             $service->scope = $authConfig['scope_key'] ?? 'admin';
             app()->auth = $service;
-           return $service;
+            return $service;
         }
         throw new \Exception('AuthService not setting');
     }
