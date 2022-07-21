@@ -213,7 +213,7 @@ class GroupNew extends Resource
             foreach ($groupInfo['fields'] as $item) {
                 $list[] = [
                     'type' => $item['type'],
-                    'content' => $item['param'],
+                    'content' => $item['param'] ?? '',
                     'name' => $item['name'],
                     'title' => $item['title'],
                     'rule' => $item['rule'] ?? '',
