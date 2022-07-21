@@ -666,7 +666,7 @@ class Quick
         if (is_null($path)) {
             quick_abort(404, '找不到资源');
         }
-        
+
         return response(
             file_get_contents($path),
             200,
