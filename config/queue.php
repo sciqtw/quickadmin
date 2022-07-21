@@ -23,7 +23,7 @@ return [
         'quick' => [
             'type'  =>  \quick\admin\library\queue\Database::class,
             'queue' => 'default',
-            'table' => 'system_queue3',
+            'table' => 'system_queue',
         ],
         'redis'    => [
             'type'       => 'redis',

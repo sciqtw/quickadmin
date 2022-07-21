@@ -10,6 +10,6 @@ namespace quick\admin\http\model;
  */
 class SystemQueue extends Model
 {
-    protected $name = 'system_queue3';
+    protected $name = 'system_queue';
 
 }
