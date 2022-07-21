@@ -34,4 +34,15 @@
 
 在使用中有任何问题，请使用以下联系方式联系我们
 
-1. 官方QQ交流群：571438821(https://jq.qq.com/?_wv=1027&k=RIaWbSX2)
+1. 官方QQ交流群：[571438821](https://jq.qq.com/?_wv=1027&k=RIaWbSX2)
+
+
+## 版权信息
+
+QuickAdmin遵循Apache2开源协议发布，并提供免费使用。
+
+本项目包含的第三方源码和二进制文件之版权信息另行标注。
+
+版权所有Copyright © 2021-2022 by QuickAdmin (https://www.quickadmin.com)
+
+All rights reserved。
