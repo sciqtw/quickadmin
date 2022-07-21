@@ -14,7 +14,12 @@
 
 #### 安装使用
 
-[https://doc.quickadmin.cn/](https://doc.quickadmin.cn)
+```
+ git clone  https://gitee.com/sciqtw/quickadmin
+```
+
+
+[使用文档https://doc.quicdkadmin.cn](https://doc.quicdkadmin.cn)
 
 #### 在线演示
 
@@ -30,4 +35,3 @@
 在使用中有任何问题，请使用以下联系方式联系我们
 
 1. 官方QQ交流群：571438821(https://jq.qq.com/?_wv=1027&k=RIaWbSX2)
-
