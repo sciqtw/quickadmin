@@ -3,35 +3,31 @@
 #### 介绍
 一款基于ThinkPHP6+Vue3+ElementPlus开箱即用的中后台管理系统框架
 
-#### 软件架构
-软件架构说明
+* 快速开发CRUD
+    * 支持一级生成CRUD,分钟级别的增删改查。
+    * 强大的`form`,`table`vue组件，使用后端PHP构建渲染不用为每个CRUD编写html页面，维护修改超级方便
+    * 支持灵活定制`form-item`,`table-column`。
+* 强大的权限管理系统
+* 强大的插件扩展功能，在线安装卸载升级插件
+* 通用的会员模块和API模块
 
 
-#### 安装教程
+#### 安装使用
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+[https://doc.quickadmin.cn/](https://doc.quickadmin.cn)
 
-#### 使用说明
+#### 在线演示
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+[https://demo.quickadmin.cn/](https://demo.quickadmin.cn)
 
 
-#### 特技
+用户名：admin
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+密　码：123456
+
+#### 问题反馈
+
+在使用中有任何问题，请使用以下联系方式联系我们
+
+1. 官方QQ交流群：571438821(https://jq.qq.com/?_wv=1027&k=RIaWbSX2)
+
