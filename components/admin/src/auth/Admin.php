@@ -137,7 +137,6 @@ class Admin extends Resource
         $form->text('phone', "手机")->rules('mobile');
         $form->text('email', "email")->rules("email");
         $form->image('avatar', "头像");
-        $form->upload('tests', "上传")->file()->default('fdfd');
         $form->tree('auth_set', "角色")->options($authList)->fillUsing(function ($data, $model) {
             return $model->auth_set = implode(',', $data['auth_set']);
         })->resolveUsing(function ($value) {

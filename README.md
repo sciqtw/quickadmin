@@ -15,7 +15,7 @@
 #### 安装使用
 
 ```
- git clone  https://gitee.com/sciqtw/quickadmin
+ git clone https://gitee.com/sciqtw/quickadmin.git
 ```
 
 
