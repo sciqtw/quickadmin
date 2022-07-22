@@ -134,7 +134,7 @@ class Plugin extends Resource
                 return false;
             }));
             $action->add(PluginUninstallAction::make()->canRun(function ($request, $model) {
-                if (!empty($model['is_install']) && !$model['status'] && in_array($model['name'],['test','crud'])) {
+                if (!empty($model['is_install']) && !$model['status']) {
                     return true;
                 }
                 return false;

@@ -75,7 +75,7 @@ class Index extends Backend
              * head 顶部模式
              * single 侧边栏模式（无主导航）
              */
-            "menuMode" =>  'head',
+            "menuMode" =>  'side',
         ];
 
         Quick::dispatchAssets();

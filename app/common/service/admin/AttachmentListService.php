@@ -115,23 +115,38 @@ class AttachmentListService extends CommonService
 
             $update = UploadService::instance();
             $update->setFile($this->file);
+            if($this->type == 'file'){
+                $update->safe = true;
+            }
+
             $res = $update->save();
             if ($res && $res['uploaded']) {
-                $model = new SystemAttachment();
-                $res = $model->save([
-                    'storage_id' => $this->storage_id,
-                    'attachment_cate_id' => $this->cate_id > 0 ? $this->cate_id : 0,
-                    'name' => $res['name'],
-                    'size' => $res['size'],
+                $cateId = $this->cate_id > 0 ? $this->cate_id : 0;
+                $model = SystemAttachment::where([
                     'image' => $res['url'],
-                    'thumb_image' => $res['url'],
-                    'type' => 1,
-                    'is_recycle' => 0,
                     'is_deleted' => 0,
-                    'updated_at' => date("Y-m-d H:i:s"),
-                    'created_at' => date("Y-m-d H:i:s"),
-                ]);
-                if($res){
+                    'attachment_cate_id' => $cateId,
+                    'storage_id' =>  $this->storage_id,
+                ])->find();
+                if(!$model){
+                    $model = new SystemAttachment();
+                    $model->save([
+                        'storage_id' => $this->storage_id,
+                        'attachment_cate_id' => $cateId,
+                        'name' => $res['name'],
+                        'size' => $res['size'],
+                        'image' => $res['url'],
+                        'thumb_image' => $res['url'],
+                        'type' => $this->type,
+                        'is_recycle' => 0,
+                        'is_deleted' => 0,
+                        'updated_at' => date("Y-m-d H:i:s"),
+                        'created_at' => date("Y-m-d H:i:s"),
+                    ]);
+                }
+
+
+                if($model && $model->id){
                     return $this->success('success', $model->toArray());
                 }
 

@@ -1,32 +1,55 @@
 <template>
+<!--  <el-upload-->
+<!--    :show-file-list="false"-->
+<!--    :action="action"-->
+<!--    :data="data"-->
+<!--    :name="name"-->
+<!--    :before-upload="beforeUpload"-->
+<!--    :on-exceed="onExceed"-->
+<!--    :on-success="onSuccess"-->
+<!--    :on-remove="handleRemove"-->
+<!--    :file-list="url"-->
+<!--    :limit="max"-->
+<!--    drag-->
+<!--  >-->
+<!--    <div class="slot">-->
+<!--      <div style="width: 200px;">-->
+<!--        <el-icon class="el-icon&#45;&#45;upload">-->
+<!--          <el-icon-upload-filled/>-->
+<!--        </el-icon>-->
+<!--        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--    <template #tip>-->
+<!--      <div v-if="!notip" class="el-upload__tip">-->
+<!--        <div style="display: inline-block;">-->
+<!--          <el-alert :title="`上传文件支持 ${ ext.join(' / ') } 格式，单个文件大小不超过 ${ size }MB，且文件数量不超过 ${ max } 个`" type="info"-->
+<!--                    show-icon :closable="false"/>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </template>-->
+<!--  </el-upload>-->
+
   <el-upload
-    :show-file-list="false"
-    :action="action"
+    :file-list="url"
+    class="upload-demo"
+    :limit="max"
+    :headers="headers"
     :data="data"
+    :action="action"
     :name="name"
+    :auto-upload="true"
     :before-upload="beforeUpload"
     :on-exceed="onExceed"
     :on-success="onSuccess"
     :on-remove="handleRemove"
-    :file-list="url"
-    :limit="max"
-    drag
+    :on-change="handleChange"
   >
-    <div class="slot">
-      <div style="width: 200px;">
-        <el-icon class="el-icon--upload">
-          <el-icon-upload-filled/>
-        </el-icon>
-        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-      </div>
-
-    </div>
+    <el-button type="primary">点击上传</el-button>
     <template #tip>
-      <div v-if="!notip" class="el-upload__tip">
-        <div style="display: inline-block;">
-          <el-alert :title="`上传文件支持 ${ ext.join(' / ') } 格式，单个文件大小不超过 ${ size }MB，且文件数量不超过 ${ max } 个`" type="info"
-                    show-icon :closable="false"/>
-        </div>
+      <div class="el-upload__tip">
+        上传文件支持 {{ext.join(' / ')}} 格式，单个文件大小不超过 {{size}}MB，且文件数量不超过 {{max}} 个
       </div>
     </template>
   </el-upload>
@@ -100,12 +123,15 @@
   }
 
   function onSuccess(res, file) {
-    console.log('-----onSuccess---------resss',res, file)
+    file.url = res.data.image
     emit('on-success', res, file)
   }
   function handleRemove(file, fileList){
     emit('update:url', fileList)
-    console.log('------handleRemove-------',file, fileList)
+    // console.log('------handleRemove-------',file, fileList)
+  }
+  function handleChange(uploadFile, uploadFiles){
+    // console.log('------handleChange-------',uploadFile, uploadFiles)
   }
 </script>
 

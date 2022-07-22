@@ -105,7 +105,7 @@ class UploadService extends Service
             return [
                 'uploaded' => true,
                 'filename' => $fileName,
-                'size' => '',
+                'size' => 0,
                 'name' => $this->getFile()->getOriginalName(),
                 'url' => $this->safe ? $fileName : $info['url']];
         } else {

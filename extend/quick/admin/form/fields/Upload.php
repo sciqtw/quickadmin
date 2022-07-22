@@ -26,6 +26,8 @@ class Upload extends Field
         'file' => 'file-upload',
     ];
 
+    public $limit = 1;
+
     /**
      * @var string 上传类型 image|images|file
      *
@@ -51,6 +53,10 @@ class Upload extends Field
         $listType = $this->getProps("list-type");
         if($listType == 'image' && is_array($value) && count($value)){
             return $value[0];
+        }
+
+        if($this->uploadType == 'file' && $this->limit == 1  ){
+            return (is_array($value) && count($value)) ?  $value[0]:[];
         }
         return $value;
     }
@@ -79,7 +85,8 @@ class Upload extends Field
         if($limit > 1){
             $this->multiple();
         }
-        return $this->props('limit',$limit);
+        $this->limit = $limit;
+        return $this;
     }
 
 
@@ -120,6 +127,9 @@ class Upload extends Field
         }
         $this->uploadType = 'file';
         $this->valueType = 'array';
+        $this->uploadProps('data',[
+            'type' => 'file',
+        ]);
         return $this;
     }
 
@@ -137,6 +147,9 @@ class Upload extends Field
         }
         $this->uploadType = 'image';
         $this->valueType = 'string';
+        $this->uploadProps('data',[
+            'type' => 'image',
+        ]);
         return $this->listType('image');
     }
 
@@ -153,6 +166,9 @@ class Upload extends Field
         }
         $this->uploadType = 'images';
         $this->valueType = 'array';
+        $this->uploadProps('data',[
+            'type' => 'image',
+        ]);
         return $this;
     }
 
@@ -188,22 +204,32 @@ class Upload extends Field
         $value = parent::getDefaultValue();
 
         if($this->uploadType === 'image'){
-            return $value;
-        }
 
-        if(is_string($value) && !empty($value)){
-            $value = explode(",",$value);
-            $data = [];
-            foreach($value as $url){
-//                $data[] = [
-//                    'url' => $url
-//                ];
-                $data[] = $url;
+            if(is_string($value) && !empty($value)){
+                $value = explode(",",$value);
+                $data = [];
+                foreach($value as $url){
+                    $data[] = $url;
+                }
+                $value = $data;
             }
-            $value = $data;
+
+            $value = is_array($value) ? $value:[];
         }
 
-        $value = is_array($value) ? $value:[];
+        if($this->uploadType === 'file'){
+            if(is_string($value) && !empty($value)){
+                $value = [
+                    ['name' => $value,'url' => $value]
+                ];
+            }elseif($this->limit == 1 && is_array($value)){
+                $value = [
+                    $value
+                ];
+            }
+        }
+
+
         return $value;
     }
 
@@ -331,6 +357,7 @@ class Upload extends Field
     {
 //        $this->valueType = "string";
         $this->props('type',$this->uploadType);
+        $this->props('limit',$this->limit);
         $this->props('uploadComponent',self::UPLOADTYPE[$this->uploadType]);
         $this->props('uploadProps',$this->uploadProps);
         return array_merge(parent::jsonSerialize(), []);

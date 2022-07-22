@@ -210,8 +210,8 @@ class Attachment extends Resource
      */
     public function upload(Request $request, AttachmentListService $service)
     {
-        $service->save();
         $service->cate_id = $request->post('cate_id');
+        $service->type = $request->post('type','image');
         $service->file = $request->file("file");
         $service->storage_id = $this->getStorageId();
         return $this->responseJson($service->save());

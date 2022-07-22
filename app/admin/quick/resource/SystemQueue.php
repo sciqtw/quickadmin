@@ -56,7 +56,7 @@ class SystemQueue extends Resource
     {
         $command = '';
         // 超级管理面板
-        if (AuthService::instance()->isSuper()) {
+        if (AuthService::instance()->isSuper() && app()->isDebug()) {
             $process = ProcessService::instance();
             if ($process->iswin() || empty($_SERVER['USER'])) {
                 $command = $process->think('quick:queue start');
@@ -69,7 +69,7 @@ class SystemQueue extends Resource
             'type' => 'warning',
             'underline' => false,
         ])->content('只有超级管理员才能操作！');
-        if (AuthService::instance()->isSuper()) {
+        if (AuthService::instance()->isSuper() && app()->isDebug()) {
             try {
                 $message = $this->app->console->call('quick:queue', ['status'])->fetch();
                 if (preg_match('/process.*?\d+.*?running/', $message, $attrs)) {

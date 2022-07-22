@@ -36,7 +36,7 @@ class AdminPasswordAction extends Action
 
         $this->withMeta([
             'title' => '设置密码',
-            'desc' => '密码强度：强',
+            'desc' => '设置您的登录密码',
         ]);
     }
 

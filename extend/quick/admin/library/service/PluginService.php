@@ -274,7 +274,7 @@ class PluginService extends Service
                     $tempLine = str_ireplace('__PREFIX__', config('database.prefix'), $tempLine);
                     $tempLine = str_ireplace('INSERT INTO ', 'INSERT IGNORE INTO ', $tempLine);
                     try {
-                        \think\Db::getPdo()->exec($tempLine);
+                        Db::execute($tempLine);
                     } catch (\PDOException $e) {
                         //$e->getMessage();
                     }

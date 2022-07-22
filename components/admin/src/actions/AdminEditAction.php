@@ -46,7 +46,7 @@ class AdminEditAction extends Action
         $form->text('nickname', "昵称")->rules('require');
         $form->text('email', "邮箱")->rules('email');
         $form->text('phone', "手机")->rules('mobile');
-
+        $form->hideCancel();
         return $form;
     }
 

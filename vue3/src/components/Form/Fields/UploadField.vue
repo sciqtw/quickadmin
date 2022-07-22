@@ -111,10 +111,12 @@
           }else if(props.type === 'images'){
             value.value.push(res.data.image)
           }else if(props.type === 'file'){
-            value.value.push({
-              name: file.name,
-              url:res.data.image
-            })
+
+            // value.value.push({
+            //   name: file.name,
+            //   url:res.data.image
+            // })
+
           }
         }
       }

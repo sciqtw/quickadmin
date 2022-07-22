@@ -47,10 +47,10 @@
             </el-row>
           </el-form-item>
         </div>
-        <div class="flex-bar">
-          <el-checkbox v-model="loginForm.remember">记住我</el-checkbox>
-          <el-button type="text" @click="formType = 'reset'">忘记密码</el-button>
-        </div>
+<!--        <div class="flex-bar">-->
+<!--          <el-checkbox v-model="loginForm.remember">记住我</el-checkbox>-->
+<!--          <el-button type="text" @click="formType = 'reset'">忘记密码</el-button>-->
+<!--        </div>-->
         <el-button :loading="loading" type="primary" style="width: 100%;" @click.prevent="handleLogin">登 录</el-button>
         <div
           style="margin-top: 20px; margin-bottom: -10px; color: #666; font-size: 14px; text-align: center; font-weight: bold;"
