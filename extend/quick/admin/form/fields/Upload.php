@@ -128,7 +128,7 @@ class Upload extends Field
         $this->uploadType = 'file';
         $this->valueType = 'array';
         $this->uploadProps('data',[
-            'type' => 'file',
+            'type' => '3',
         ]);
         return $this;
     }
@@ -148,7 +148,7 @@ class Upload extends Field
         $this->uploadType = 'image';
         $this->valueType = 'string';
         $this->uploadProps('data',[
-            'type' => 'image',
+            'type' => '1',
         ]);
         return $this->listType('image');
     }
@@ -167,7 +167,7 @@ class Upload extends Field
         $this->uploadType = 'images';
         $this->valueType = 'array';
         $this->uploadProps('data',[
-            'type' => 'image',
+            'type' => '1',
         ]);
         return $this;
     }
