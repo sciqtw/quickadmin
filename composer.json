@@ -25,7 +25,7 @@
     "erusev/parsedown": "^1.7",
     "symfony/finder": "^4.3.4",
     "zoujingli/ip2region": "^1.0",
-    "doctrine/annotations": "1.6",
+    "doctrine/annotations": "1.13.*",
     "titasgailius/terminal": "^1.0",
     "nelexa/zip": "^3.3",
     "guzzlehttp/guzzle": "^7.0",

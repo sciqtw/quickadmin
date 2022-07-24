@@ -6,6 +6,7 @@ namespace app\admin\quick\resource;
 use quick\admin\annotation\AdminAuth;
 use quick\admin\components\Component;
 use quick\admin\components\layout\Row;
+use quick\admin\components\QkTimeline;
 use quick\admin\Element;
 
 /**
@@ -81,7 +82,7 @@ class Dashboard extends Resource
         $content->title($this->title())
             ->description($this->description())
             ->body(function (Row $row) use ($da, $table) {
-                $row->attribute('gutter', 15);
+                $row->props('gutter', 15);
 
 
                 $row->col([
@@ -115,12 +116,19 @@ class Dashboard extends Resource
                     'max-height' => '268px',
                 ])));
 
-                $gir = [
-                    "xs" => 3,
-                    "sm" => 3,
-                    "md" => 3,
-                    "lg" => 3,
-                ];
+//                $timeLine = QkTimeline::make();
+//                $timeLine->add('商城系统','开发中。。。。')->placement('bottom');
+//                $timeLine->add('商城系统','开发中。。。。')->placement('bottom');
+//                $row->col(12, Component::card($timeLine)->style([
+//                    'margin-top' => '15px',
+//                ]));
+
+//                $gir = [
+//                    "xs" => 3,
+//                    "sm" => 3,
+//                    "md" => 3,
+//                    "lg" => 3,
+//                ];
 //                $row->col($gir, Component::iconCard('el-icon-TrendCharts', '配置', '#69c0ff'));
 //                $row->col($gir, Component::iconCard('el-icon-TrendCharts', '配置', '#69c0ff'));
 //                $row->col($gir, Component::iconCard('el-icon-TrendCharts', '配置', '#69c0ff'));

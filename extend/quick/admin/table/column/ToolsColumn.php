@@ -59,20 +59,20 @@ class ToolsColumn extends AbstractColumn
     {
         $this->callDisplayCallback();
         $row = $this->row;
-        if(method_exists($this->row,'toArray')){
+        if (is_object($this->row) && method_exists($this->row, 'toArray')) {
             $row = $this->row->toArray();
         }
         $actions = [];
-        foreach ($this->actions as $action){
+        foreach ($this->actions as $action) {
             /** @var Action $actionObject */
             $actionObject = clone $action;
-            $actionObject->data($row);
-            $actions[] = $actionObject ;
+            $actionObject->data((array)$row);
+            $actions[] = $actionObject;
         }
 
         $this->props(['actionList' => $actions]);
 
-        return array_merge(parent::jsonSerialize(),[]);
+        return array_merge(parent::jsonSerialize(), []);
 
     }
 }

@@ -306,7 +306,7 @@ class NodeService extends Service
      * @param string $plugin_name
      * @return array
      */
-    protected function parseNode($class, string $default, string $node, string $pnode, int $level, string $mode = "controller", string $plugin_name)
+    protected function parseNode($class, string $default, string $node, string $pnode, int $level, string $mode = "controller", string $plugin_name = 'admin')
     {
         if ($class instanceof ReflectionClass) {
             /** @var AdminAuth $classAnnotations */
