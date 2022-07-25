@@ -255,3 +255,16 @@ if (!function_exists('renderPluginsComponents')) {
     }
 }
 
+if(!function_exists('saveDataAuth')){
+
+    /**
+     * 数据持久化权限
+     * @throws Exception
+     */
+    function saveDataAuth()
+    {
+        if(env('app.app_mode') == 'demo'){
+            throw new \Exception('测试系统不允许修改数据');
+        }
+    }
+}

@@ -66,7 +66,9 @@ class ResourceController
             $actionInstance = $instance->handleResourceAction($action, $func);
 
             if (is_callable([$actionInstance, $func]) && in_array($func, ['load', 'store', 'async'])) {
-
+                if($func === 'store'){
+                    saveDataAuth();
+                }
                 // todo $func模式有利于后期扩展
                 $call = [$actionInstance, $func];
                 $instanceType = 'action';
