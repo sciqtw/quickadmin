@@ -99,27 +99,36 @@ class SystemUser extends BaseModel
      */
     public static function createAdminUser(string $username, array $data = [], array $admin = [], int $type = 0)
     {
-        $user = self::where([
-            'username' => $username,
-            'is_deleted' => 0,
-        ])->find();
+        $user = SystemUser::withJoin(['identity'])->where([
+            'system_user.username' =>  $username,
+            'system_user.is_deleted' => 0,
+        ])->where(function ($query){
+            $query->whereOr([
+                'identity.is_admin' => 1,
+                'identity.is_super_admin' => 1,
+            ]);
+        })->find();
+
         if ($user) {
             throw new \Exception('账户名已被占用');
         }
 
-        $password = $data['password'] ?? CodeTools::random(23,3);
-        $salt = $data['salt'] ?? CodeTools::random(4,3);
         $user = new SystemUser();
         $user->username = $username;
         $user->nickname = $data['nickname'] ?? $username;
         $user->status = 1;
-        $user->password = static::hashPassword($password, $salt);
-        $user->salt = $salt;
 
+        $password = $data['password'] ?? CodeTools::random(23,3);
+        $salt = $data['salt'] ?? CodeTools::random(4,3);
         unset($data['username']);
         unset($data['password']);
         unset($data['salt']);
+
+        $user->password = static::hashPassword($password, $salt);
+        $user->salt = $salt;
+
         $res = $user->save($data);
+
         if (!$res) {
             throw new \Exception('添加失败');
         }

@@ -108,9 +108,9 @@ abstract class RowAction extends Action
         if (!$model) {
             quick_abort(500, '资源不存在');
         }
-//        if (!$this->handleCanRun($this->request, $model)) {
-//            quick_abort(500, '你无权访问');
-//        }
+        if (!$this->handleCanRun($this->request, $model)) {
+            quick_abort(500, '你无权访问');
+        }
 
         if ($this->beforeLoadCallback instanceof \Closure) {
             $beforeSavingCallback = \Closure::bind($this->beforeLoadCallback,$this);
@@ -134,9 +134,9 @@ abstract class RowAction extends Action
         if (!$model) {
             quick_abort(500, '资源不存在');
         }
-//        if (!$this->handleCanRun($this->request, $model)) {
-//            quick_abort(500, '你无权访问');
-//        }
+        if (!$this->handleCanRun($this->request, $model)) {
+            quick_abort(500, '你无权访问');
+        }
         return $this->handle($model, $this->request);
     }
 
