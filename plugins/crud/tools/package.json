@@ -1,0 +1,29 @@
+{
+  "name": "tools2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "mix --production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.2.26",
+    "laravel-mix": "^6.0.39",
+    "axios": "^0.24.0",
+    "sass": "^1.45.2",
+    "sass-loader": "^12.4.0",
+    "vue-loader": "^16.8.3"
+  },
+  "dependencies": {
+    "highlight.js": "^11.3.1",
+    "vue": "^3.2.23",
+    "vuedraggable": "^4.1.0"
+  }
+}

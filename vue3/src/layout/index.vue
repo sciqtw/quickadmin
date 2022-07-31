@@ -32,9 +32,8 @@
     <ThemeSetting/>
   </div>
 </template>
-
 <!--本项目前端layout模块基于 Fantastic-admin 修改定制-->
-<!-- layout模块版权归  Fantastic-admin 所有 -->
+<!-- layout模块版权归  Fantastic-admin  -->
 <!-- 项目地址：https://gitee.com/hooray/fantastic-admin  -->
 <script setup>
   import {getCurrentInstance, computed, watch, onMounted, provide, nextTick, onUnmounted} from 'vue';
@@ -102,12 +101,20 @@
 
   provide('switchMenu', switchMenu);
 
+  function isExternal(path) {
+    return /^(https?:|mailto:|tel:)/.test(path)
+  }
+
   function switchMenu(index) {
     store.commit('menu/switchHeaderActived', index);
 
     if (store.state.settings.switchSidebarAndPageJump) {
-
-      router.push(store.getters['menu/sidebarRoutesFirstDeepestPath']);
+      let path = store.getters['menu/sidebarRoutesFirstDeepestPath'];
+      if(isExternal(path)){
+        window.open(path, '_blank')
+      }else{
+        router.push(path);
+      }
     }
   }
 

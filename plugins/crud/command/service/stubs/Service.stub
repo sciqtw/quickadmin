@@ -1,0 +1,37 @@
+<?php
+declare (strict_types = 1);
+
+namespace {%namespace%};
+
+use app\common\service\CommonService;
+
+/**
+ * Class {%className%}
+ * @package {%namespace%}
+ */
+class {%className%} extends CommonService
+{
+
+
+    {%properties%}
+
+
+  {%rules%}
+  {%message%}
+  {%attrLabels%}
+
+    /**
+     * @return array
+     */
+    public function execute()
+    {
+        if (!$this->validate()) {
+            return $this->error($this->getFirstError());
+        }
+
+        // todo
+
+        return $this->success('success');
+    }
+
+}

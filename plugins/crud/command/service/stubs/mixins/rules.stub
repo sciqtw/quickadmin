@@ -1,0 +1,8 @@
+  /**
+     * 验证规则
+     * @return array
+     */
+    protected function rules(): array
+    {
+        return {%rules%};
+    }

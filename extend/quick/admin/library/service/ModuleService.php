@@ -49,7 +49,7 @@ class ModuleService extends Service
 
     public static function bind()
     {
-        return [
+        $default = [
             'admin'  => [
                 'rules'  => [
                     'app/admin',
@@ -96,6 +96,7 @@ class ModuleService extends Service
                 'ignore' => [],
             ],
         ];
+        return config('module.config',$default);
     }
 
 
@@ -110,7 +111,7 @@ class ModuleService extends Service
         $this->root = $this->app->getRootPath();
         $this->version = trim(Quick::version(), 'v');
 //        $maxVersion = strstr($this->version, '.', true);
-        $this->server = "https://serve.quickadmin.cn/index.php/";
+        $this->server =  config('module.server',"https://serve.quickadmin.cn/index.php/");
         return $this;
     }
 

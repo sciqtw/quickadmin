@@ -4,15 +4,10 @@ declare(strict_types=1);
 namespace app\admin\controller;
 
 
-use app\admin\library\Auth;
 use app\common\controller\Backend;
-use components\admin\src\actions\AdminEditAction;
 use quick\admin\annotation\AdminAuth;
 use quick\admin\components\Component;
-use quick\admin\form\Form;
-use quick\admin\library\service\AuthService;
 use quick\admin\library\service\MenuService;
-use quick\admin\library\service\UploadService;
 use quick\admin\Quick;
 
 

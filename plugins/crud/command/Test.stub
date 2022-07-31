@@ -1,0 +1,165 @@
+<?php
+
+namespace {%namespace%};
+
+
+use quick\admin\filter\Filter;
+use quick\admin\Form\Form;
+use quick\admin\Resource;
+use quick\admin\table\Table;
+use think\Request;
+
+/**
+ *
+ * Class {%className%}
+ * @package {%namespace%}
+ */
+class {%className%} extends Resource
+{
+    /**
+     * 标题
+     *
+     * @var string
+     */
+    protected $title = 'title';
+
+    /**
+     * @var string
+     */
+    protected $description = "desc";
+
+    /**
+     * 关联模型 app\\common\\model\\DemoArticle
+     *
+     * @var string
+     */
+    protected static $model = '{%modelClass%}';
+
+
+    /**
+     * 可搜索字段
+     *
+     * @var array
+     */
+    public static $search = ["id"];
+
+
+    /**
+     * @param Table $table
+     * @return Table
+     * @throws \Exception
+     */
+    protected function table(Table $table)
+    {
+        
+        $table->text('name', '名称')->required();
+        $table->select('set', '选择')->options([
+            's' => '男',
+            'w' => '女',
+            2 => true,
+            'st' => [
+                'ss' => 3,
+                's' => 'e',
+                'sd' => false,
+            ],
+        ], 'id', 'name')->filterable(false, true, 2, '3');
+
+        return $table;
+    }
+
+
+
+    /**
+     * 定义form
+     * @param Form $form
+     * @param Request $request
+     * @return Form
+     * @throws \think\Exception
+     */
+    protected function form(Form $form, Request $request)
+    {
+        
+        $form->text('name', '名称')->required();
+        $form->select('set', '选择')->options([
+            's' => '男',
+            'w' => '女',
+            2 => true,
+            'st' => [
+                'ss' => 3,
+                's' => 'e',
+                'sd' => false,
+            ],
+        ], 'id', 'name')->filterable(false, true, 2, '3');
+
+        return $form;
+    }
+
+
+
+    /**
+     * 过滤器
+     * @param Request $request
+     * @return array
+     */
+    protected function filters(Filter $filter)
+    {
+        return $filter;
+    }
+
+
+    /**
+     * 注册行操作
+     * @return array|mixed
+     */
+    protected function actions()
+    {
+        return [];
+    }
+
+
+    /**
+     * 注册批量操作
+     * @return array
+     */
+    protected function batchActions()
+    {
+        return [];
+    }
+
+
+    /**
+     * 设置删除
+     * @param $action
+     * @param $request
+     * @return mixed
+     */
+    protected function deleteAction($action, $request)
+    {
+        return $action;
+    }
+
+    /**
+     * 设置编辑
+     * @param $action
+     * @param $request
+     * @return mixed
+     */
+    protected function editAction($action, $request)
+    {
+        return $action;
+    }
+
+
+    /**
+     *  设置添加
+     * @param \quick\admin\actions\Action $action
+     * @param Request $request
+     * @return \quick\admin\actions\Action
+     */
+    protected function addAction($action, $request)
+    {
+        return $action;
+    }
+
+
+}

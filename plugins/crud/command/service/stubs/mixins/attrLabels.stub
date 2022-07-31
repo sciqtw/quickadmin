@@ -1,0 +1,7 @@
+  /**
+     * @return array
+     */
+    protected function attrLabels(): array
+    {
+        return {%attrLabels%};
+    }

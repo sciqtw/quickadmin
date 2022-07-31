@@ -1,0 +1,26 @@
+<?php
+declare (strict_types = 1);
+
+namespace {%namespace%};
+
+use quick\admin\http\model\Model;
+
+/**
+ * Class {%className%}
+ *
+ {%properties%}
+ *
+ * @package {%namespace%}
+ */
+class {%className%} extends Model
+{
+
+
+  {%rules%}
+  {%message%}
+  {%attrLabels%}
+
+    {%constList%}
+
+  {%relationMethod%}
+}
