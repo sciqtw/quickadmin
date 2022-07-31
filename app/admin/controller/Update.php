@@ -83,12 +83,12 @@ class Update extends Backend
             $rules = array_merge($rules, $bind['rules']);
             $ignore = array_merge($ignore, $bind['ignore']);
         }
-        $data = ModuleService::instance()->getChanges($rules, $ignore);
+//        $data = ModuleService::instance()->getChanges($rules, $ignore);
 
-//        $data = ModuleService::instance()->getChanges(
-//            json_decode($this->request->post('rules', '[]', ''), true),
-//            json_decode($this->request->post('ignore', '[]', ''), true)
-//        );
+        $data = ModuleService::instance()->getChanges(
+            json_decode($this->request->post('rules', '[]', ''), true),
+            json_decode($this->request->post('ignore', '[]', ''), true)
+        );
         return $this->responseJson($data);
     }
 
