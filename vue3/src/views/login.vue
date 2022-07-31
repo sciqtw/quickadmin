@@ -110,7 +110,9 @@
     <!--    <Copyright v-if="$store.state.settings.showCopyright" />-->
   </div>
 </template>
-
+<!--本项目前端layout模块基于 Fantastic-admin 修改定制-->
+<!-- layout模块版权归  Fantastic-admin  -->
+<!-- 项目地址：https://gitee.com/hooray/fantastic-admin  -->
 <script setup name="Login">
   import {getCurrentInstance, ref, onMounted, watch, computed} from 'vue';
   import {useStore} from "vuex"
