@@ -111,7 +111,7 @@ class ModuleService extends Service
         $this->root = $this->app->getRootPath();
         $this->version = trim(Quick::version(), 'v');
 //        $maxVersion = strstr($this->version, '.', true);
-        $this->server =  config('module.server',"https://serve.quickadmin.cn/index.php/");
+        $this->server = env("app.module_serve",config('module.server',"https://serve.quickadmin.cn/index.php/"));
         return $this;
     }
 
